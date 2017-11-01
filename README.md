@@ -1,0 +1,2 @@
+# JHHolderTextView
+textView with placeholder
