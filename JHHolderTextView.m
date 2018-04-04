@@ -43,6 +43,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _limitCountPrefixText = @"";
+        _limitCountSubfixText = @"";
         [self jhSetupViews:frame];
     }
     return self;
@@ -106,9 +108,9 @@
     
     if (textView.text.length > _limitCount) {
         textView.text = [textView.text substringToIndex:_limitCount];
-        _limitedLabel.text = [NSString stringWithFormat:@"%@%@/%@",_limitCountPrefixText,@(_limitCount),@(_limitCount)];
+        _limitedLabel.text = [NSString stringWithFormat:@"%@%@/%@%@",_limitCountPrefixText,@(_limitCount),@(_limitCount),_limitCountSubfixText];
     }else{
-        _limitedLabel.text = [NSString stringWithFormat:@"%@%@/%@",_limitCountPrefixText,@(textView.text.length),@(_limitCount)];
+        _limitedLabel.text = [NSString stringWithFormat:@"%@%@/%@%@",_limitCountPrefixText,@(textView.text.length),@(_limitCount),_limitCountSubfixText];
     }
 }
 
@@ -156,7 +158,12 @@
 
 - (void)setLimitCountPrefixText:(NSString *)limitCountPrefixText{
     _limitCountPrefixText = limitCountPrefixText;
-    _limitedLabel.text = [NSString stringWithFormat:@"%@0/%@",limitCountPrefixText,@(_limitCount)];
+    _limitedLabel.text = [NSString stringWithFormat:@"%@0/%@%@",limitCountPrefixText,@(_limitCount),_limitCountSubfixText];
+}
+
+- (void)setLimitCountSubfixText:(NSString *)limitCountSubfixText{
+    _limitCountSubfixText = limitCountSubfixText;
+    _limitedLabel.text = [NSString stringWithFormat:@"%@0/%@%@",_limitCountPrefixText,@(_limitCount),limitCountSubfixText];
 }
 
 - (void)setLimitCountOffsetX:(CGFloat)limitCountOffsetX{
