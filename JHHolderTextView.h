@@ -47,6 +47,8 @@
 
 @property (copy,    nonatomic) NSString *limitCountPrefixText;
 
+@property (copy,    nonatomic) NSString *limitCountSubfixText;
+
 @property (assign,  nonatomic) CGFloat  limitCountOffsetX;
 
 @property (assign,  nonatomic) CGFloat  limitCountOffsetY;
