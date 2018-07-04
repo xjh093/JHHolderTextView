@@ -106,6 +106,10 @@
         _holderLabel.hidden = YES;
     }
     
+    if (_limitCount == 0) {
+        return;
+    }
+    
     if (textView.text.length > _limitCount) {
         textView.text = [textView.text substringToIndex:_limitCount];
         _limitedLabel.text = [NSString stringWithFormat:@"%@%@/%@%@",_limitCountPrefixText,@(_limitCount),@(_limitCount),_limitCountSubfixText];
@@ -115,7 +119,10 @@
 }
 
 - (void)setText:(NSString *)text{
-    _textView.text = text;
+    if (text) {
+        _textView.text = text;
+        [self jhCount:_textView];
+    }
 }
 
 - (NSString *)text{
@@ -144,6 +151,7 @@
 - (void)setLimitCount:(NSUInteger)limitCount{
     _limitCount = limitCount;
     _limitedLabel.text = [NSString stringWithFormat:@"%@0/%@",_limitCountPrefixText,@(limitCount)];
+    [self jhCount:_textView];
 }
 
 - (void)setLimitCountTextColor:(UIColor *)limitCountTextColor{
