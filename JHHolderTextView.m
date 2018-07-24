@@ -45,6 +45,7 @@
     if (self) {
         _limitCountPrefixText = @"";
         _limitCountSubfixText = @"";
+        _showLimitCount = YES;
         [self jhSetupViews:frame];
     }
     return self;
@@ -182,6 +183,21 @@
 - (void)setLimitCountOffsetY:(CGFloat)limitCountOffsetY{
     _limitCountOffsetY = limitCountOffsetY;
     _limitedLabel.center = CGPointMake(_limitedLabel.center.x, _limitedLabel.center.y + limitCountOffsetY);
+}
+
+- (void)setShowLimitCount:(BOOL)showLimitCount{
+    if (_showLimitCount != showLimitCount) {
+        _showLimitCount = showLimitCount;
+        
+        CGRect frame = _textView.frame;
+        if (_showLimitCount) {
+            frame.size.height -= 16;
+        }else{
+            frame.size.height += 16;
+        }
+        _textView.frame = frame;
+        _limitedLabel.hidden = !showLimitCount;
+    }
 }
 
 @end
