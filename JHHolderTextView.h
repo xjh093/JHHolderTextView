@@ -52,5 +52,6 @@
 @property (assign,  nonatomic) CGFloat  limitCountOffsetX;
 
 @property (assign,  nonatomic) CGFloat  limitCountOffsetY;
-
+/// Default is 'YES'
+@property (nonatomic,  assign) BOOL  showLimitCount;
 @end
