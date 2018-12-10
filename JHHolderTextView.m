@@ -149,6 +149,16 @@
     return _holderLabel.text;
 }
 
+- (void)setHolderTextColor:(UIColor *)holderTextColor{
+    _holderTextColor = holderTextColor;
+    _holderLabel.textColor = holderTextColor;
+}
+
+- (void)setHolderFont:(UIFont *)holderFont{
+    _holderFont = holderFont;
+    _holderLabel.font = holderFont;
+}
+
 - (void)setLimitCount:(NSUInteger)limitCount{
     _limitCount = limitCount;
     _limitedLabel.text = [NSString stringWithFormat:@"%@0/%@",_limitCountPrefixText,@(limitCount)];
