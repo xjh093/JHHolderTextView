@@ -39,6 +39,10 @@
 
 @property (copy,    nonatomic) NSString *holder;
 
+@property (strong,  nonatomic) UIColor *holderTextColor;
+
+@property (strong,  nonatomic) UIFont *holderFont;
+
 @property (assign,  nonatomic) NSUInteger  limitCount;
 
 @property (strong,  nonatomic) UIColor *limitCountTextColor;
