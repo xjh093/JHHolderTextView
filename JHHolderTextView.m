@@ -142,7 +142,7 @@
 }
 
 - (void)setHolder:(NSString *)holder{
-    _holderLabel.text = holder;
+    _holderLabel.text = [@" " stringByAppendingString:holder];
 }
 
 - (NSString *)holder{
