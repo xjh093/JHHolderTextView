@@ -37,6 +37,10 @@
 
 @property (strong,  nonatomic) UIFont *font;
 
+@property (strong,  nonatomic) UIColor *textViewBackgroundColor;
+
+@property (assign,  nonatomic) UIEdgeInsets  edgeInsets;
+
 @property (copy,    nonatomic) NSString *holder;
 
 @property (strong,  nonatomic) UIColor *holderTextColor;
