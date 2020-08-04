@@ -145,6 +145,25 @@
     _holderLabel.text = [@" " stringByAppendingString:holder];
 }
 
+- (void)setTextViewBackgroundColor:(UIColor *)textViewBackgroundColor{
+    _textViewBackgroundColor = textViewBackgroundColor;
+    _textView.backgroundColor = textViewBackgroundColor;
+}
+
+- (void)setEdgeInsets:(UIEdgeInsets)edgeInsets
+{
+    _edgeInsets = edgeInsets;
+    CGFloat offsetY = _showLimitCount ? 16 : 0;
+    
+    CGRect frame = _textView.frame;
+    frame.origin.x = edgeInsets.left;
+    frame.origin.y = edgeInsets.top;
+    frame.size.width = CGRectGetWidth(self.frame) - edgeInsets.left - edgeInsets.right;
+    frame.size.height = CGRectGetHeight(self.frame) - edgeInsets.top - edgeInsets.bottom - offsetY;
+    
+    _textView.frame = frame;
+}
+
 - (NSString *)holder{
     return _holderLabel.text;
 }
